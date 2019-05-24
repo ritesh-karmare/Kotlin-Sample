@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.example.kotlintest"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation Libs.SUPPORT
+    implementation Libs.CONSTRAINT_LAYOUT
+    implementation Libs.KOTLIN_SDK
+
+    testImplementation Libs.JUNIT
+    androidTestImplementation Libs.TEST_RUNNER
+    androidTestImplementation Libs.ESPRESSO
+
+    implementation project(':featureComponent')
+    implementation project(':featureRoom')
+}
