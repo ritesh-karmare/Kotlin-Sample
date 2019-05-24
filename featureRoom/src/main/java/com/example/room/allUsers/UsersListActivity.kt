@@ -1,7 +1,6 @@
 package com.example.room.allUsers
 
 import android.content.Intent
-
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -17,7 +16,6 @@ import com.example.room.utils.LinearLayoutManagerWrapper
 import com.example.room.utils.SwipeToDeleteCallback
 import com.google.android.material.snackbar.Snackbar
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.toast
 
 
 class UsersListActivity : AppCompatActivity(), AnkoLogger {
@@ -49,14 +47,23 @@ class UsersListActivity : AppCompatActivity(), AnkoLogger {
         dataBinding.lifecycleOwner = this
     }
 
+    // Observer the data changed in the DB (User added/deleted)
     private fun setUpObserver() {
         userViewModel.getAllUsers().observe(this, Observer {
-            usersAdapter.setUsers(it)
-            dataBinding.rvUsers.scrollToPosition(usersAdapter.itemCount - 1)
-            toast("New data added successfully")
+            if (it.isEmpty()){
+                dataBinding.rvUsers.visibility = View.GONE
+                dataBinding.tvNoData.visibility = View.VISIBLE
+            }else{
+                usersAdapter.setUsers(it)
+                dataBinding.rvUsers.scrollToPosition(usersAdapter.itemCount - 1)
+
+                dataBinding.rvUsers.visibility = View.VISIBLE
+                dataBinding.tvNoData.visibility = View.GONE
+            }
         })
     }
 
+    // init RecyclerView
     private fun initRecyclerView() {
         dataBinding.rvUsers.layoutManager = LinearLayoutManagerWrapper(this)
         dataBinding.rvUsers.addItemDecoration(
@@ -69,6 +76,7 @@ class UsersListActivity : AppCompatActivity(), AnkoLogger {
         dataBinding.rvUsers.adapter = usersAdapter
     }
 
+    // Init swipeListener to delete user by implementing SwipeToDeleteCallback
     private fun initSwipeListener() {
         ItemTouchHelper(object : SwipeToDeleteCallback(this) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, i: Int) {
@@ -77,6 +85,7 @@ class UsersListActivity : AppCompatActivity(), AnkoLogger {
         }).attachToRecyclerView(dataBinding.rvUsers)
     }
 
+    // Delete the item from list on swipe
     private fun deleteItem(position: Int) {
         val item = usersAdapter.getItem(position)
         userViewModel.deleteUser(item.userId)
@@ -88,6 +97,7 @@ class UsersListActivity : AppCompatActivity(), AnkoLogger {
         snackbar.show()
     }
 
+    // on addUser fab click
     fun fabClick(view: View) {
         startActivity(Intent(this, AddUserActivity::class.java))
     }

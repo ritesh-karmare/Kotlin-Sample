@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FeatureRoom</string>
+    <string name="no_data">No data to display.\nPlease add users to the list.</string>
 </resources>
