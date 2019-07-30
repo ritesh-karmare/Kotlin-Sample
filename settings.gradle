@@ -1,1 +1,1 @@
-include ':app', ':featureRoom', ':featureComponent'
+include ':app', ':featureRoom', ':featureComponent', ':featureNavigation'

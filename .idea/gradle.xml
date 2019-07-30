@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/featureComponent" />
+            <option value="$PROJECT_DIR$/featureNavigation" />
             <option value="$PROJECT_DIR$/featureRoom" />
           </set>
         </option>

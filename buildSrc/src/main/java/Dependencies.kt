@@ -6,7 +6,7 @@ object Versions {
     val V_CONSTRAINT_LAYOUT = "1.1.3"
     val V_ROOM = "2.1.0-beta01"
     val V_ARCH_LIFECYLCE = "2.2.0-alpha01"
-    val V_DATABINDING_COMPILER = "3.3.2"
+    val V_DATABINDING_COMPILER = "3.4.1"
     val V_ANKO = "0.10.8"
     val V_COROUTINE = "1.1.1"
     val V_JUNIT = "4.12"

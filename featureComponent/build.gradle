@@ -37,14 +37,14 @@ dependencies {
     implementation Libs.SUPPORT
     implementation Libs.CONSTRAINT_LAYOUT
     implementation Libs.KOTLIN_SDK
-
+    
     // Data binding component
-    kapt Libs.DATABINDING_COMPILER
+     kapt Libs.DATABINDING_COMPILER
 
     // Lifecycle components
     implementation Libs.VIEWMODEL
     implementation Libs.LIFECYCLE_EXTENSION
-    annotationProcessor Libs.LIFECYCLE_COMPILER
+    kapt Libs.LIFECYCLE_COMPILER
 
     testImplementation Libs.JUNIT
     androidTestImplementation Libs.TEST_RUNNER

@@ -1,1 +1,1 @@
-/home/riteshashok/AndroidStudioProjects/KotlinSample/Kotlin-Sample/buildSrc/build/classes/kotlin/main/Libs.class:/home/riteshashok/AndroidStudioProjects/KotlinSample/Kotlin-Sample/buildSrc/build/classes/kotlin/main/Versions.class
+/home/riteshashok/AndroidStudioProjects/Kotlin-Sample/buildSrc/build/classes/kotlin/main/Libs.class:/home/riteshashok/AndroidStudioProjects/Kotlin-Sample/buildSrc/build/classes/kotlin/main/Versions.class
